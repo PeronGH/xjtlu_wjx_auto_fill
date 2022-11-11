@@ -1,7 +1,7 @@
 "use strict";
 // ==UserScript==
 // @name         WJX Auto Fill For XJTLU
-// @version      1.0.1
+// @version      1.0.2
 // @description  Automatically fill in for XJTLU WJX Surveys
 // @author       Peron
 // @match        https://xjtlusurvey.wjx.cn/vm/*
@@ -19,7 +19,7 @@ const answers = new Map([
         '承诺书*【多选题】',
         '本人承诺所有填报信息、上传资料均为真实，如有隐瞒、漏报、谎报等行为，或者违反相关规定造成区域恐慌、疾病传播，自愿承担由此导致的相关法律及行政责任。',
     ],
-    ['你在学校宿舍是否有床位*', '有'],
+    ['当日所在地、隔离防护等防疫状态均无变化*', '是，无变化，常态化防护中'],
 ]);
 async function waitForLoading() {
     return new Promise(resolve => {
