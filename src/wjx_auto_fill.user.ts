@@ -7,7 +7,7 @@
 // @grant        none
 // ==/UserScript==
 
-const answers = new Map<string, string>([
+const defaultAnswers = new Map<string, string>([
     ['苏康码颜色*', '绿色'],
     ['今日是否已做/将做核酸检测*', '是'],
     [
@@ -19,7 +19,7 @@ const answers = new Map<string, string>([
         '承诺书*【多选题】',
         '本人承诺所有填报信息、上传资料均为真实，如有隐瞒、漏报、谎报等行为，或者违反相关规定造成区域恐慌、疾病传播，自愿承担由此导致的相关法律及行政责任。',
     ],
-    ['当日所在地、隔离防护等防疫状态均无变化*', '是，无变化，常态化防护中'],
+    ['当日所在地、隔离防护等防疫状态均无变化*', '无变化，常态化防护中'],
 ]);
 
 async function waitForLoading(): Promise<HTMLCollection> {
@@ -34,7 +34,7 @@ async function waitForLoading(): Promise<HTMLCollection> {
     for (const div of await waitForLoading()) {
         const label = div.getElementsByClassName('field-label')[0];
         const question = label.textContent?.trim() ?? '';
-        const answer = answers.get(question);
+        const answer = defaultAnswers.get(question);
 
         if (answer) {
             const options = [
@@ -43,7 +43,10 @@ async function waitForLoading(): Promise<HTMLCollection> {
             ] as HTMLDivElement[];
 
             for (const option of options)
-                if (option.textContent?.trim() === answer) option.click();
+                if (option.textContent?.trim() === answer) {
+                    option.click();
+                    break;
+                }
         }
     }
 })();
