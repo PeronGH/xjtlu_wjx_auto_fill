@@ -1,7 +1,7 @@
 "use strict";
 // ==UserScript==
 // @name         WJX Auto Fill For XJTLU
-// @version      1.0.2
+// @version      1.1.0
 // @description  Automatically fill in for XJTLU WJX Surveys
 // @author       Peron
 // @match        https://xjtlusurvey.wjx.cn/vm/*
