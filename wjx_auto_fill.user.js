@@ -1,10 +1,12 @@
 "use strict";
 // ==UserScript==
 // @name         WJX Auto Fill For XJTLU
-// @version      1.1.0
+// @version      1.2.0
 // @description  Automatically fill in for XJTLU WJX Surveys
 // @author       Peron
 // @match        https://xjtlusurvey.wjx.cn/vm/*
+// @updateURL    https://raw.githubusercontent.com/PeronGH/xjtlu_wjx_auto_fill/main/wjx_auto_fill.user.js
+// @downloadURL  https://raw.githubusercontent.com/PeronGH/xjtlu_wjx_auto_fill/main/wjx_auto_fill.user.js
 // @grant        none
 // ==/UserScript==
 const waitForLoading = () => new Promise(resolve => {
