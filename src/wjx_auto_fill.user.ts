@@ -37,7 +37,10 @@ const waitForLoading: () => Promise<HTMLCollection> = () =>
         for (const option of options) {
             const optionContent = option.textContent?.trim();
 
-            if (optionContent === answer || allAnswers.has(optionContent))
+            if (
+                !(div as HTMLDivElement).style.display.includes('none') &&
+                (optionContent === answer || allAnswers.has(optionContent))
+            )
                 option.click();
 
             option.addEventListener('click', () =>

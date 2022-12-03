@@ -34,7 +34,8 @@ const waitForLoading = () => new Promise(resolve => {
         ];
         for (const option of options) {
             const optionContent = option.textContent?.trim();
-            if (optionContent === answer || allAnswers.has(optionContent))
+            if (!div.style.display.includes('none') &&
+                (optionContent === answer || allAnswers.has(optionContent)))
                 option.click();
             option.addEventListener('click', () => localStorage.setItem(question, optionContent));
         }
