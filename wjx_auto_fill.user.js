@@ -1,7 +1,7 @@
 "use strict";
 // ==UserScript==
 // @name         WJX Auto Fill For XJTLU
-// @version      1.2.0
+// @version      1.2.1
 // @description  Automatically fill in for XJTLU WJX Surveys
 // @author       Peron
 // @match        https://xjtlusurvey.wjx.cn/vm/*
@@ -34,10 +34,8 @@ const waitForLoading = () => new Promise(resolve => {
         ];
         for (const option of options) {
             const optionContent = option.textContent?.trim();
-            if (optionContent === answer || allAnswers.has(optionContent)) {
+            if (optionContent === answer || allAnswers.has(optionContent))
                 option.click();
-                allAnswers.delete(answer);
-            }
             option.addEventListener('click', () => localStorage.setItem(question, optionContent));
         }
     }
